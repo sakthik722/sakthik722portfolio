@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><style id="qw-theme">:root {
+  --color-bg: #faf9fc !important;
+  --color-text: #131920 !important;
+  --react-pdf-text-layer: 1 !important;
+  --highlight-bg-color: #b400aa !important;
+  --highlight-selected-bg-color: #006400 !important;
+  --react-pdf-annotation-layer: 1 !important;
+  --annotation-unfocused-field-background: url("data:image/svg+xml;charset=UTF-8,<svg width='1px' height='1px' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' style='fill:rgba(0, 54, 255, 0.13);'/></svg>") !important;
+  --input-focus-border-color: Highlight !important;
+  --input-focus-outline: 1px solid Canvas !important;
+  --input-unfocused-border-color: transparent !important;
+  --input-disabled-border-color: transparent !important;
+  --input-hover-border-color: black !important;
+  --link-outline: none !important;
+  --flow-size-overview-canvas-min-height: 480px !important;
+  --chat-column-max: 720px !important;
+  --color-navbar-bg: #f9f9fb !important;
+  --color-navbar-fg: #131920 !important;
+  --color-navbar-fg-muted: color-mix(in srgb, #131920 65%, #f9f9fb) !important;
+  --color-navbar-divider: #0000001f !important;
+  --color-leftnav-bg: #f9f9fb !important;
+  --color-bg-chat-view: #f9f9fb !important;
+  --color-bg-secondary: #fff !important;
+  --color-bg-tertiary: #f9fafb !important;
+  --color-bg-hover: #f3f4f6 !important;
+  --color-surface: #f9fafb !important;
+  --color-surface-hover: #f3f4f6 !important;
+  --color-surface-active: #e5e7eb !important;
+  --color-border: #0000001f !important;
+  --color-border-light: #0000000f !important;
+  --color-border-strong: #d1d5db !important;
+  --background-toggle-off-default: #fff0 !important;
+  --color-primary: #4200db !important;
+  --color-primary-dark: #35009e !important;
+  --color-primary-light: #8575ff !important;
+  --color-primary-bg: #e8e6ff !important;
+  --color-primary-hover-border: #35009e !important;
+  --color-nav-icon-active: #4200db !important;
+  --color-nav-hover-border: #4200db !important;
+  --color-primary-alpha-3: color-mix(in srgb, #4200db 3%, transparent) !important;
+  --color-primary-alpha-5: color-mix(in srgb, #4200db 5%, transparent) !important;
+  --color-primary-alpha-8: color-mix(in srgb, #4200db 8%, transparent) !important;
+  --color-primary-alpha-12: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-primary-alpha-15: color-mix(in srgb, #4200db 15%, transparent) !important;
+  --color-primary-alpha-20: color-mix(in srgb, #4200db 20%, transparent) !important;
+  --color-primary-alpha-25: color-mix(in srgb, #4200db 25%, transparent) !important;
+  --color-primary-alpha-30: color-mix(in srgb, #4200db 30%, transparent) !important;
+  --color-primary-alpha-40: color-mix(in srgb, #4200db 40%, transparent) !important;
+  --color-primary-alpha-50: color-mix(in srgb, #4200db 50%, transparent) !important;
+  --color-primary-alpha-60: color-mix(in srgb, #4200db 60%, transparent) !important;
+  --color-primary-subtle: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-primary-border: color-mix(in srgb, #4200db 30%, transparent) !important;
+  --color-focus-ring: #4200db !important;
+  --color-sidebar-hover: color-mix(in srgb, #4200db 12%, transparent) !important;
+  --color-sidebar-hover-solid: color-mix(in srgb, #4200db 12%, #faf9fc) !important;
+  --block-hover-outline: 1px dashed color-mix(in srgb, #4200db 50%, transparent) !important;
+  --block-selected-outline: 1px solid #8575ff !important;
+  --block-selection-outline-offset: 2px !important;
+  --block-selected-halo: 0 0 8px color-mix(in srgb, #4200db 40%, transparent) !important;
+  --color-accent: #4200db !important;
+  --color-accent-foreground: #4200db !important;
+  --color-accent-dark: #35009e !important;
+  --color-accent-light: #e8e6ff !important;
+  --color-accent-inverse: #fff !important;
+  --color-link: #4200db !important;
+  --color-brand-ai-gradient-start: #6842ff !important;
+  --color-brand-ai-gradient-mid: #d600ba !important;
+  --color-brand-ai-gradient-end: #ff4b14 !important;
+  --color-brand-kiro: #9147ff !important;
+  --color-primary-gradient-end: #e8e6ff !important;
+  --color-primary-bg-solid: #e8e6ff !important;
+  --color-user-bubble: #f3f3f7 !important;
+  --color-user-bubble-text: #131920 !important;
+  --color-text-secondary: #5e5e5e !important;
+  --color-text-tertiary: #656871 !important;
+  --color-text-muted: #656871 !important;
+  --color-text-on-primary: #fff !important;
+  --color-success: #00802f !important;
+  --color-success-dark: #00471e !important;
+  --color-success-light: #d9ffd6 !important;
+  --color-success-hover: #005c26 !important;
+  --color-success-bg: #e6f5eb !important;
+  --color-success-border: #b3d9bf !important;
+  --color-success-foreground: #00802f !important;
+  --color-success-dark-foreground: #00471e !important;
+  --color-success-text: #00471e !important;
+  --color-error: #db0000 !important;
+  --color-error-dark: #700000 !important;
+  --color-error-light: #ffe0e0 !important;
+  --color-error-hover: #ffe0e0 !important;
+  --color-error-bg: #fceaea !important;
+  --color-error-border: #f2cccc !important;
+  --color-error-active-border: #db0000 !important;
+  --color-error-foreground: #db0000 !important;
+  --color-error-dark-foreground: #700000 !important;
+  --color-error-inverse: #fff !important;
+  --color-error-text: #700000 !important;
+  --color-warning: #f2b100 !important;
+  --color-warning-dark: #573a00 !important;
+  --color-warning-light: #fffbbd !important;
+  --color-warning-hover: #db9200 !important;
+  --color-warning-bg: #fef7e6 !important;
+  --color-warning-border: #f9dfa3 !important;
+  --color-warning-foreground: #f2b100 !important;
+  --color-warning-dark-foreground: #573a00 !important;
+  --color-warning-inverse: #573a00 !important;
+  --color-surface-warning: #fffbbd !important;
+  --color-text-warning: #573a00 !important;
+  --color-info: #006ce0 !important;
+  --color-info-dark: #002a66 !important;
+  --color-info-light: #d1f1ff !important;
+  --color-info-hover: #003b8f !important;
+  --color-info-bg: #ebf3fc !important;
+  --color-info-border: #b3d1f0 !important;
+  --color-info-foreground: #006ce0 !important;
+  --color-info-dark-foreground: #002a66 !important;
+  --color-info-inverse: #fff !important;
+  --color-overlay: #00000080 !important;
+  --color-shadow: #00000014 !important;
+  --color-hover: #0000000d !important;
+  --color-tooltip-bg: #000000d9 !important;
+  --color-tooltip-text: #fff !important;
+  --color-voice-purple: #8575ff !important;
+  --color-voice-purple-dark: #4200db !important;
+  --color-voice-purple-light: #8575ff !important;
+  --color-voice-red: #db0000 !important;
+  --color-voice-red-dark: #700000 !important;
+  --color-voice-amber: #f2b100 !important;
+  --color-voice-purple-glow: #4200db66 !important;
+  --color-voice-red-glow: #db000066 !important;
+  --font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  --font-mono: "SF Mono", "Monaco", "Menlo", "Consolas", monospace !important;
+  --text-2xs: .5625rem !important;
+  --text-xs: .625rem !important;
+  --text-sm: .6875rem !important;
+  --text-base: .75rem !important;
+  --text-md: .8125rem !important;
+  --text-lg: .875rem !important;
+  --text-xl: 1rem !important;
+  --text-2xl: 1.125rem !important;
+  --text-3xl: 1.25rem !important;
+  --text-4xl: 1.5rem !important;
+  --text-5xl: 2rem !important;
+  --spacing-1: calc(.25rem * 1) !important;
+  --spacing-1-5: calc(.25rem * 1.5) !important;
+  --spacing-2: calc(.25rem * 2) !important;
+  --spacing-3: calc(.25rem * 3) !important;
+  --spacing-4: calc(.25rem * 4) !important;
+  --spacing-5: calc(.25rem * 5) !important;
+  --spacing-6: calc(.25rem * 6) !important;
+  --spacing-7: calc(.25rem * 7) !important;
+  --spacing-8: calc(.25rem * 8) !important;
+  --spacing-9: calc(.25rem * 9) !important;
+  --spacing-10: calc(.25rem * 10) !important;
+  --border-radius-rounded-lg: 8px !important;
+  --radius-sm: 6px !important;
+  --radius-md: 10px !important;
+  --radius-card: 12px !important;
+  --radius-lg: 16px !important;
+  --radius-pill: 8px !important;
+  --shadow-sm: 0 1px 2px #0000000d !important;
+  --shadow-md: 0 4px 12px #00000014 !important;
+  --shadow-lg: 0 4px 16px 4px #00000029, 0 2px 6px 1px #00000029 !important;
+  --color-success-bg-solid: #d9ffd6 !important;
+  --color-error-bg-solid: #ffe0e0 !important;
+  --color-error-border-solid: #ffe0e0 !important;
+  --color-warning-bg-solid: #fffbbd !important;
+  --color-warning-text: #573a00 !important;
+  --color-info-bg-solid: #d1f1ff !important;
+  --color-info-bg-solid-alt: #d1f1ff !important;
+  --color-info-text: #002a66 !important;
+  --color-info-text-alt: #002a66 !important;
+  --color-emerald: #10b981 !important;
+  --color-teal: #4ecdc4 !important;
+  --color-code-bg: #f3f3f7 !important;
+  --color-code-header-bg: #f1f3f5 !important;
+  --color-code-text: #24292e !important;
+  --color-code-border: #e1e4e8 !important;
+  --color-code-muted: #6a737d !important;
+  --color-inline-code-bg: #f3f3f7 !important;
+  --color-inline-code-text: #24292e !important;
+  --color-inline-code-border: #e1e4e8 !important;
+  --color-scrollbar-thumb: #d1d5db !important;
+  --color-scrollbar-track: transparent !important;
+  --color-graph-node-text: #333 !important;
+  --color-graph-node-text-dim: #7f8c8d !important;
+  --color-graph-edge-default: #95a5a6 !important;
+  --color-graph-edge-cross: #e67e22 !important;
+  --color-graph-edge-text: #666 !important;
+  --color-graph-edge-stroke: #fff !important;
+  --color-graph-highlight-bg: #ff6b6b !important;
+  --color-graph-highlight-border: #e74c3c !important;
+  --color-graph-search-bg: gold !important;
+  --color-graph-search-border: orange !important;
+  --color-graph-focus-border: #c0392b !important;
+  --color-graph-external-border: #95a5a6 !important;
+  --color-graph-selected-border: #4200db !important;
+  --qs-data-cat-01: #4338ca !important;
+  --qs-data-cat-02: #d97706 !important;
+  --qs-data-cat-03: #0891b2 !important;
+  --qs-data-cat-04: #8b5cf6 !important;
+  --qs-data-cat-05: #15803d !important;
+  --qs-data-cat-06: #0c4a6e !important;
+  --qs-data-cat-07: #d946ef !important;
+  --qs-data-cat-08: #65a30d !important;
+  --qs-data-cat-09: #1d4ed8 !important;
+  --qs-data-cat-10: #831843 !important;
+  --qs-data-cat-11: #c2410c !important;
+  --qs-data-cat-12: #115e59 !important;
+  --qs-data-cat-other: #737373 !important;
+  --color-graph-cat-person: #4338ca !important;
+  --color-graph-cat-module: #4338ca !important;
+  --color-graph-cat-organization: #d97706 !important;
+  --color-graph-cat-org: #d97706 !important;
+  --color-graph-cat-variable: #d97706 !important;
+  --color-graph-cat-column: #d97706 !important;
+  --color-graph-cat-project: #0891b2 !important;
+  --color-graph-cat-sheet: #0891b2 !important;
+  --color-graph-cat-url: #0891b2 !important;
+  --color-graph-cat-product: #8b5cf6 !important;
+  --color-graph-cat-class: #8b5cf6 !important;
+  --color-graph-cat-dashboard: #8b5cf6 !important;
+  --color-graph-cat-place: #15803d !important;
+  --color-graph-cat-location: #15803d !important;
+  --color-graph-cat-function: #15803d !important;
+  --color-graph-cat-event: #0c4a6e !important;
+  --color-graph-cat-date: #0c4a6e !important;
+  --color-graph-cat-service: #0c4a6e !important;
+  --color-graph-cat-creativework: #d946ef !important;
+  --color-graph-cat-doc: #d946ef !important;
+  --color-graph-cat-message: #65a30d !important;
+  --color-graph-cat-channel: #65a30d !important;
+  --color-graph-cat-email: #65a30d !important;
+  --color-graph-cat-visual: #65a30d !important;
+  --color-graph-cat-file: #1d4ed8 !important;
+  --color-graph-cat-file-aggregate: #1d4ed8 !important;
+  --color-graph-cat-code: #1d4ed8 !important;
+  --color-graph-cat-decision: #831843 !important;
+  --color-graph-cat-action: #831843 !important;
+  --color-graph-cat-observation: #831843 !important;
+  --color-graph-cat-metric: #831843 !important;
+  --color-graph-cat-topic: #c2410c !important;
+  --color-graph-cat-concept: #c2410c !important;
+  --color-graph-cat-definedterm: #c2410c !important;
+  --color-graph-cat-instruction: #c2410c !important;
+  --color-graph-cat-import: #c2410c !important;
+  --color-graph-cat-dataset: #115e59 !important;
+  --color-graph-cat-occupation: #115e59 !important;
+  --color-graph-cat-method: #115e59 !important;
+  --color-graph-cat-folder: #737373 !important;
+  --color-graph-cat-unknown: #737373 !important;
+  --color-graph-rel-contains: #bdc3c7 !important;
+  --color-graph-rel-extends: #9b59b6 !important;
+  --color-graph-rel-implements: #3498db !important;
+  --color-graph-rel-imports: #e67e22 !important;
+  --color-graph-rel-uses: #2ecc71 !important;
+  --color-graph-rel-calls: #27ae60 !important;
+  --color-graph-rel-references: #f39c12 !important;
+  --color-graph-rel-related-to: #95a5a6 !important;
+  --color-graph-rel-works-on: #e74c3c !important;
+  --color-graph-rel-owns: #1abc9c !important;
+  --color-graph-rel-depends-on: #e67e22 !important;
+  --color-graph-rel-parent-of: #bdc3c7 !important;
+  --qs-content: #fff !important;
+  --qs-main: #fff !important;
+  --qs-primary-foreground: #131920 !important;
+  --qs-secondary-foreground: #656871 !important;
+  --qs-tertiary-foreground: #656871 !important;
+  --qs-placeholder-foreground: #656871 !important;
+  --qs-divider: #dedee3 !important;
+  --qs-default-border: #8c8c94 !important;
+  --qs-neutral-soft: #b4b4bb !important;
+  --qs-neutral-gray-50: #f9fafb !important;
+  --qs-tertiary-background: #f9fafb !important;
+  --qs-action-hover: #f3f3f7 !important;
+  --qs-primary-default: #4200db !important;
+  --qs-primary-dark: #35009e !important;
+  --qs-primary-light: #e8e6ff !important;
+  --qs-primary-inverse: #fff !important;
+  --qs-success-default: #00802f !important;
+  --qs-success-dark: #00471e !important;
+  --qs-error-default: #db0000 !important;
+  --qs-warning-default: #f2b100 !important;
+  --qs-font-sans: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  --safe-top: 0px !important;
+  --safe-bottom: 0px !important;
+  --safe-left: 0px !important;
+  --safe-right: 0px !important;
+  --qs-action-active: #e8e6ff !important;
+  --qs-action-disabled: #f3f3f7 !important;
+  --qs-active-border: #4200db !important;
+  --qs-application-navbar: #4200db !important;
+  --qs-application-navbar-dark: #35009e !important;
+  --qs-application-navbar-foreground: #fff !important;
+  --qs-application-navbar-light: #e8e6ff !important;
+  --qs-automation-dark: #660052 !important;
+  --qs-automation-default: #d600ba !important;
+  --qs-automation-light: #ffe0fb !important;
+  --qs-automation-medium: #b3008f !important;
+  --qs-automation-soft: #ff94f1 !important;
+  --qs-avatar-blue-bg: #d1f1ff !important;
+  --qs-avatar-blue-fg: #002a66 !important;
+  --qs-avatar-fuchsia-bg: #fce6ff !important;
+  --qs-avatar-fuchsia-fg: #590066 !important;
+  --qs-avatar-green-bg: #d9ffd6 !important;
+  --qs-avatar-green-fg: #00471e !important;
+  --qs-avatar-neutral-bg: #dedee3 !important;
+  --qs-avatar-neutral-fg: #131920 !important;
+  --qs-avatar-orange-bg: #ffe0d6 !important;
+  --qs-avatar-orange-fg: #661800 !important;
+  --qs-avatar-pink-bg: #ffe0fb !important;
+  --qs-avatar-pink-fg: #660052 !important;
+  --qs-avatar-primary-bg: #e8e6ff !important;
+  --qs-avatar-primary-fg: #35009e !important;
+  --qs-avatar-red-bg: #ffe0e0 !important;
+  --qs-avatar-red-fg: #700000 !important;
+  --qs-avatar-violet-bg: #f2e5ff !important;
+  --qs-avatar-violet-fg: #45008a !important;
+  --qs-avatar-yellow-bg: #fffbbd !important;
+  --qs-avatar-yellow-fg: #573a00 !important;
+  --qs-brand: #fff !important;
+  --qs-brand-foreground: #131920 !important;
+  --qs-brand-navbar: #131920 !important;
+  --qs-brand-navbar-dark: #000 !important;
+  --qs-brand-navbar-foreground: #fff !important;
+  --qs-brand-navbar-light: #dedee3 !important;
+  --qs-coachmark: #006ce0 !important;
+  --qs-connection-dark: #661800 !important;
+  --qs-connection-default: #db3300 !important;
+  --qs-connection-light: #ffe0d6 !important;
+  --qs-connection-soft: #ff997a !important;
+  --qs-content-inverse: #333843 !important;
+  --qs-content-inverse-active: #131920 !important;
+  --qs-contrast-foreground: #131920 !important;
+  --qs-data-categorical-01: #4338ca !important;
+  --qs-data-categorical-02: #d97706 !important;
+  --qs-data-categorical-03: #0891b2 !important;
+  --qs-data-categorical-04: #8b5cf6 !important;
+  --qs-data-categorical-05: #15803d !important;
+  --qs-data-categorical-06: #0c4a6e !important;
+  --qs-data-categorical-07: #d946ef !important;
+  --qs-data-categorical-08: #65a30d !important;
+  --qs-data-categorical-09: #1d4ed8 !important;
+  --qs-data-categorical-10: #831843 !important;
+  --qs-data-categorical-11: #c2410c !important;
+  --qs-data-categorical-12: #115e59 !important;
+  --qs-data-categorical-other: #737373 !important;
+  --qs-data-divergent-negative: #ea580c !important;
+  --qs-data-divergent-positive: #4f46e5 !important;
+  --qs-data-divergent-red-green-negative: #dc2626 !important;
+  --qs-data-divergent-red-green-positive: #16a34a !important;
+  --qs-data-missing: #d4d4d4 !important;
+  --qs-data-sentiment-neutral: #737373 !important;
+  --qs-data-sentiment-warning: #9e6900 !important;
+  --qs-data-sequential-duochromatic-high: #1e1b4b !important;
+  --qs-data-sequential-duochromatic-low: #8b5cf6 !important;
+  --qs-data-sequential-monochromatic-high: #4f46e5 !important;
+  --qs-default-badge: #b4b4bb !important;
+  --qs-default-badge-dot: #656871 !important;
+  --qs-dimension: #4200db !important;
+  --qs-dimension-experimental: #4200db !important;
+  --qs-dimension-experimental-foreground: #4200db !important;
+  --qs-dimension-foreground: #fff !important;
+  --qs-disabled: #8c8c94 !important;
+  --qs-disabled-border: #dedee3 !important;
+  --qs-disabled-foreground: #b4b4bb !important;
+  --qs-divider-light: #f3f3f7 !important;
+  --qs-error-active-border: #db0000 !important;
+  --qs-error-border: #ffe0e0 !important;
+  --qs-error-dark: #700000 !important;
+  --qs-error-foreground: #db0000 !important;
+  --qs-error-inverse: #fff !important;
+  --qs-error-light: #ffe0e0 !important;
+  --qs-error-medium: #900 !important;
+  --qs-error-soft: #ff9e9e !important;
+  --qs-focus-offset: 1px !important;
+  --qs-font-base-letter-spacing: .15px !important;
+  --qs-font-family: "Amazon Ember", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif !important;
+  --qs-grid-gap: 16px !important;
+  --qs-grid-gap-xl: 24px !important;
+  --qs-hero-banner-button-hover: color-mix(in srgb, #fff, transparent 60%) !important;
+  --qs-hover-border: #333843 !important;
+  --qs-info-dark: #002a66 !important;
+  --qs-info-default: #006ce0 !important;
+  --qs-info-inverse: #fff !important;
+  --qs-info-light: #d1f1ff !important;
+  --qs-info-medium: #003b8f !important;
+  --qs-info-soft: #75cfff !important;
+  --qs-insight-dark: #590066 !important;
+  --qs-insight-default: #a000b8 !important;
+  --qs-insight-light: #fce6ff !important;
+  --qs-insight-soft: #f299ff !important;
+  --qs-main-foreground: #131920 !important;
+  --qs-main-secondary-foreground: #656871 !important;
+  --qs-measure: #00802f !important;
+  --qs-measure-experimental: #f2b100 !important;
+  --qs-measure-experimental-foreground: #f2b100 !important;
+  --qs-measure-foreground: #fff !important;
+  --qs-neutral-black: #000 !important;
+  --qs-neutral-dark: #333843 !important;
+  --qs-neutral-deep: #656871 !important;
+  --qs-neutral-default: #dedee3 !important;
+  --qs-neutral-light: #f3f3f7 !important;
+  --qs-neutral-lightest: #f9f9fb !important;
+  --qs-neutral-medium: #8c8c94 !important;
+  --qs-neutral-strong: #131920 !important;
+  --qs-neutral-white: #fff !important;
+  --qs-overlay: color-mix(in srgb, #131920, transparent 50%) !important;
+  --qs-primary-inverse-foreground: #fff !important;
+  --qs-primary-medium: #8575ff !important;
+  --qs-primary-soft: #b2a8ff !important;
+  --qs-secondary: #dedee3 !important;
+  --qs-secondary-dark: #b4b4bb !important;
+  --qs-secondary-light: #f3f3f7 !important;
+  --qs-spice: #ff9800 !important;
+  --qs-success-inverse: #fff !important;
+  --qs-success-light: #d9ffd6 !important;
+  --qs-success-medium: #005c26 !important;
+  --qs-success-soft: #aeffa8 !important;
+  --qs-tag-default: #dedee3 !important;
+  --qs-tag-soft-border: #b4b4bb !important;
+  --qs-toggle-tile-lg: calc(.25rem * 15) !important;
+  --qs-toggle-tile-md: calc(.25rem * 12) !important;
+  --qs-toggle-tile-sm: calc(.25rem * 8) !important;
+  --qs-transparent: transparent !important;
+  --qs-visualization-dark: #45008a !important;
+  --qs-visualization-default: #7300e5 !important;
+  --qs-visualization-light: #f2e5ff !important;
+  --qs-visualization-soft: #d4a8ff !important;
+  --qs-warning-dark: #573a00 !important;
+  --qs-warning-experimental: #f2b100 !important;
+  --qs-warning-experimental-light: #fffbbd !important;
+  --qs-warning-experimental-light-foreground: #fffbbd !important;
+  --qs-warning-inverse: #573a00 !important;
+  --qs-warning-light: #fffbbd !important;
+  --qs-warning-medium: #db9200 !important;
+  --qs-warning-soft: #ffed4d !important;
+  --qs-width-modal-lg: 1136px !important;
+  --qs-width-modal-md: 600px !important;
+  --qs-width-modal-sm: 384px !important;
+  --qs-duration-reorder: .125s !important;
+  --qs-ease-reorder: ease-in-out !important;
+  --z-subtask-modal: 10000 !important;
+  --z-above-subtask-modal: 10001 !important;
+}</style>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sakthi Kumar S — Data &amp; E-Commerce Analyst | Automation</title>
+<meta name="description" content="Data &amp; E-Commerce Analyst with 4+ years at Amazon. SQL, Python, Power BI, web scraping and Gen AI automation. Available for freelance work.">
+<style>
+:root{--bg:#0b1120;--bg2:#0f172a;--card:#1e293b;--line:#334155;--ac:#38bdf8;--ac2:#a78bfa;--ok:#4ade80;--tx:#e2e8f0;--mu:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);line-height:1.65}
+a{color:var(--ac);text-decoration:none}
+.w{max-width:1100px;margin:auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,17,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;font-size:1.2rem;color:var(--tx)}.logo span{color:var(--ac)}
+.menu a{color:var(--mu);margin-left:24px;font-size:.92rem}.menu a:hover{color:var(--ac)}
+.burger{display:none;background:none;border:0;color:var(--tx);font-size:1.6rem;cursor:pointer}
+header{padding:110px 0 80px;background:radial-gradient(circle at 80% 10%,rgba(167,139,250,.18),transparent 45%),radial-gradient(circle at 10% 90%,rgba(56,189,248,.15),transparent 45%)}
+.tag{color:var(--ac2);font-weight:700;letter-spacing:.14em;font-size:.8rem;text-transform:uppercase}
+h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.1;margin:14px 0}
+h1 .g{background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mu);font-size:1.1rem;max-width:700px}
+.btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:10px;font-weight:600;transition:.2s}
+.btn.p{background:linear-gradient(90deg,#0284c7,#7c3aed);color:#fff}.btn.p:hover{opacity:.9;transform:translateY(-2px)}
+.btn.o{border:1px solid var(--line);color:var(--tx)}.btn.o:hover{border-color:var(--ac)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.st{background:var(--card);border:1px solid var(--line);padding:20px;border-radius:14px;text-align:center}
+.st b{font-size:2rem;color:var(--ac);display:block}.st span{font-size:.75rem;color:var(--mu);text-transform:uppercase;letter-spacing:.08em}
+section{padding:80px 0;border-top:1px solid #1a2335}
+section:nth-of-type(even){background:var(--bg2)}
+h2{font-size:2rem;margin-bottom:8px}.sub{color:var(--mu);margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.c{background:var(--card);border:1px solid var(--line);padding:24px;border-radius:14px;transition:.25s}
+.c:hover{transform:translateY(-4px);border-color:var(--ac)}
+.c h3{font-size:1.08rem;margin-bottom:6px}.c p{color:var(--mu);font-size:.93rem}
+.ic{font-size:1.8rem;margin-bottom:10px}
+.m{color:var(--ok);font-size:.85rem;font-weight:700;margin-bottom:8px}
+.pills{margin-top:14px}.pills span{display:inline-block;background:#0b2537;color:var(--ac);border-radius:20px;padding:3px 11px;font-size:.74rem;margin:4px 4px 0 0}
+.filters{margin-bottom:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--card);border:1px solid var(--line);color:var(--mu);padding:7px 16px;border-radius:20px;cursor:pointer;font-size:.85rem}
+.filters button.on{background:var(--ac);color:#0b1120;border-color:var(--ac);font-weight:700}
+.cs{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden}
+.cs summary{padding:20px 24px;cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.cs summary::after{content:"+";color:var(--ac);font-size:1.4rem}.cs[open] summary::after{content:"–"}
+.cs .body{padding:0 24px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cs .body div{background:var(--bg2);border-radius:10px;padding:14px}
+.cs .body h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.cs .body p{color:var(--mu);font-size:.9rem}
+.pb h4{color:#f87171}.sb h4{color:var(--ac)}.rb h4{color:var(--ok)}
+.tl{border-left:2px solid var(--ac);padding-left:24px}
+.tl ul{padding-left:18px;color:var(--mu)}.tl li{margin:8px 0}
+.contact{text-align:center;background:linear-gradient(135deg,#075985,#5b21b6);border-radius:20px;padding:56px 24px}
+.contact p{color:#e0e7ff;margin:10px 0 26px}
+.contact .btn.o{border-color:rgba(255,255,255,.4)}
+footer{text-align:center;color:var(--mu);font-size:.85rem;padding:30px}
+.rv{opacity:0;transform:translateY(24px);transition:.6s}.rv.in{opacity:1;transform:none}
+@media(max-width:760px){.menu{display:none;position:absolute;top:64px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:16px 24px}.menu.open{display:flex}.menu a{margin:10px 0}.burger{display:block}.stats{grid-template-columns:1fr 1fr}.cs .body{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav><div class="w">
+  <a href="#" class="logo">Sakthi<span>.</span></a>
+  <button class="burger" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+  <div class="menu"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#cases">Case Studies</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header><div class="w">
+  <div class="tag">Data Analyst · E-Commerce Analyst · Automation Specialist</div>
+  <h1>Hi, I'm Sakthi Kumar.<br><span class="g">I turn messy data into decisions.</span></h1>
+  <p class="lead">I have 4+ years at Amazon building KPI dashboards, automating audits with Generative AI, scraping and matching competitor catalogues, and writing production SQL. I help e-commerce brands, Amazon/Shopify sellers and analytics teams clean, automate and visualise their data.</p>
+  <div class="btns"><a class="btn p" href="#contact">Hire me</a><a class="btn o" href="#cases">See case studies</a></div>
+  <div class="stats">
+    <div class="st"><b>4+</b><span>Years at Amazon</span></div>
+    <div class="st"><b>70%+</b><span>Audit time cut</span></div>
+    <div class="st"><b>15</b><span>Awards won</span></div>
+    <div class="st"><b>10+</b><span>Projects delivered</span></div>
+  </div>
+</div></header>
+
+<section id="services"><div class="w">
+  <h2>Services</h2><p class="sub">What I can do for your business</p>
+  <div class="grid">
+    <div class="c rv"><div class="ic">🛒</div><h3>E-Commerce Analytics</h3><p>Amazon &amp; Shopify catalogue audits, competitor price tracking, SKU/variant analysis, listing quality checks and sales reporting.</p></div>
+    <div class="c rv"><div class="ic">🕸️</div><h3>Web Scraping &amp; Data Extraction</h3><p>Full store catalogues (products, variants, prices, barcodes, stock) exported to clean CSV/Excel, including bot-protected sites.</p></div>
+    <div class="c rv"><div class="ic">📊</div><h3>Dashboards &amp; BI</h3><p>Power BI, Tableau, QuickSight and Excel dashboards with KPI tracking, drill-downs and automated refresh.</p></div>
+    <div class="c rv"><div class="ic">🤖</div><h3>AI &amp; Process Automation</h3><p>Python + LLM workflows that replace manual review, classification and data entry.</p></div>
+    <div class="c rv"><div class="ic">🧮</div><h3>SQL, Data Cleaning &amp; EDA</h3><p>Complex SQL (CTEs, window functions), data validation, root-cause analysis and insight reports.</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="w">
+  <h2>Projects</h2><p class="sub">A selection of my analytics, automation and e-commerce work</p>
+  <div class="filters">
+    <button class="on" data-f="all">All</button><button data-f="ai">AI &amp; Automation</button><button data-f="scrape">Scraping</button><button data-f="ecom">E-Commerce</button><button data-f="bi">BI &amp; SQL</button>
+  </div>
+  <div class="grid" id="pgrid">
+    <div class="c rv" data-t="ai ecom"><h3>AI-Powered Audit Framework</h3><div class="m">↓ 70%+ audit handling time</div><p>An automated audit pipeline that uses Gen AI to check competitor product matches at scale. It replaced hours of manual review and improved accuracy.</p><div class="pills"><span>Python</span><span>Gen AI</span><span>LLM</span></div></div>
+    <div class="c rv" data-t="ai ecom"><h3>Competitor Product-Matching Engine</h3><div class="m">↑ Match accuracy &amp; throughput</div><p>Detects SKU patterns and matches products on attributes (model no., UPC/EAN, part no.) against a large catalogue.</p><div class="pills"><span>Python</span><span>NLP</span><span>Scikit-learn</span></div></div>
+    <div class="c rv" data-t="scrape ecom"><h3>Universal Shopify Store Scraper</h3><div class="m">Full catalogue → CSV in one run</div><p>Finds the store's sitemap automatically and pulls every variant: SKU, colour, size, price, compare-at price, barcode, availability and tags.</p><div class="pills"><span>JavaScript</span><span>Shopify</span><span>Scraping</span></div></div>
+    <div class="c rv" data-t="scrape"><h3>Bot-Protected Fashion Store Scraper</h3><div class="m">Hundreds of products per run, no blocks</div><p>Uses random delays, batch pauses and run limits to avoid triggering CAPTCHAs. Falls back to JSON-LD or HTML parsing when needed.</p><div class="pills"><span>JavaScript</span><span>Rate limiting</span><span>JSON-LD</span></div></div>
+    <div class="c rv" data-t="ecom ai"><h3>Competitor Match Verification Workflow</h3><div class="m">End-to-end match checks</div><p>Finds competitor SKU/model/UPC (including SKUs hidden in page code), looks them up in the catalogue and flags exact and close matches.</p><div class="pills"><span>Python</span><span>SQL</span><span>Matching</span></div></div>
+    <div class="c rv" data-t="ecom"><h3>Brand Catalogue Audit</h3><div class="m">Discrepancy report delivered</div><p>Checked a fashion brand's marketplace listings against its own website for variant, price and attribute mismatches.</p><div class="pills"><span>Excel</span><span>Python</span><span>Audit</span></div></div>
+    <div class="c rv" data-t="ai bi"><h3>Data-Quality Mismatch Classifier</h3><div class="m">Faster mismatch triage</div><p>Sorts category/code mismatches into groups (unclassified, text, numeric) for reporting and root-cause analysis.</p><div class="pills"><span>Python</span><span>Pandas</span></div></div>
+    <div class="c rv" data-t="bi"><h3>KPI &amp; SLA Dashboards</h3><div class="m">Problems caught before escalation</div><p>Power BI and QuickSight dashboards for KPIs, SLAs and support usage, with a root-cause note for every deviation.</p><div class="pills"><span>Power BI</span><span>QuickSight</span><span>SQL</span></div></div>
+    <div class="c rv" data-t="bi"><h3>Shift Roster &amp; Capacity Planner</h3><div class="m">Peak-sale staffing planned</div><p>An Excel roster for a major sales event that balances shift coverage and headcount across the team.</p><div class="pills"><span>Excel</span><span>Planning</span></div></div>
+    <div class="c rv" data-t="bi"><h3>Retail Sales Analysis</h3><div class="m">Business questions answered with SQL</div><p>Designed a retail sales database, explored the data and answered business questions with joins, window functions and CTEs.</p><div class="pills"><span>SQL</span><span>EDA</span><span>DB Design</span></div></div>
+  </div>
+</div></section>
+
+<section id="cases"><div class="w">
+  <h2>Case Studies</h2><p class="sub">Problem → Solution → Result. Click to expand.</p>
+  <details class="cs rv" open=""><summary>1 · AI-Powered Audit Automation: 70%+ less manual review</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>Analysts spent hours checking competitor product matches by hand. The work was slow and error-prone.</p></div>
+    <div class="sb"><h4>Solution</h4><p>A Python pipeline that uses an LLM to check titles, attributes and identifiers, and flags only weak matches for a person to review.</p></div>
+    <div class="rb"><h4>Result</h4><p>Manual audit time dropped by 70%+, and match accuracy went up.</p></div></div></details>
+  <details class="cs rv"><summary>2 · Competitor Product-Matching Engine</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>Matching competitor products to a large catalogue by hand led to missed and incorrect matches.</p></div>
+    <div class="sb"><h4>Solution</h4><p>Matches on SKU patterns, model numbers, UPC/EAN and attributes, including SKUs hidden in page JSON.</p></div>
+    <div class="rb"><h4>Result</h4><p>Faster, more accurate matching across thousands of products, sorted into clear tiers: exact, close and no match.</p></div></div></details>
+  <details class="cs rv"><summary>3 · Universal Shopify Scraper: full catalogue to CSV</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>Competitor research needed complete product data from many Shopify stores, which couldn't be copied by hand.</p></div>
+    <div class="sb"><h4>Solution</h4><p>A reusable tool that finds the sitemap and pulls every variant. It handles unusual sitemap formats, mixed-in image links and stores that block outside requests.</p></div>
+    <div class="rb"><h4>Result</h4><p>A whole store exports to clean CSV in one run, and it works across dozens of stores.</p></div></div></details>
+  <details class="cs rv"><summary>4 · Scraping a Bot-Protected Fashion Store</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>A CAPTCHA blocked requests after a few hundred product pages.</p></div>
+    <div class="sb"><h4>Solution</h4><p>Random delays, batch pauses and safe run limits, with JSON-LD or HTML parsing as a fallback.</p></div>
+    <div class="rb"><h4>Result</h4><p>Hundreds of products collected per run without blocks, so the whole catalogue could be gathered over several runs.</p></div></div></details>
+  <details class="cs rv"><summary>5 · KPI &amp; SLA Dashboards with Root-Cause Analysis</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>There was no single view of KPIs and SLAs, so problems were spotted late.</p></div>
+    <div class="sb"><h4>Solution</h4><p>Power BI and QuickSight dashboards built on complex SQL, with drill-downs and root-cause notes. Numbers were checked in Excel and Python first.</p></div>
+    <div class="rb"><h4>Result</h4><p>Problems were caught before they escalated, and weekly reporting became consistent.</p></div></div></details>
+  <details class="cs rv"><summary>6 · Retail Sales Analysis with SQL</summary><div class="body">
+    <div class="pb"><h4>Problem</h4><p>A retail business needed answers about sales trends, top products and customer behaviour.</p></div>
+    <div class="sb"><h4>Solution</h4><p>Designed the database from scratch, explored the data and wrote complex SQL with joins, window functions and CTEs.</p></div>
+    <div class="rb"><h4>Result</h4><p>Clear findings on revenue drivers, best-selling products and customer patterns.</p></div></div></details>
+</div></section>
+
+<section id="skills"><div class="w">
+  <h2>Skills</h2><p class="sub">Tools I use every day</p>
+  <div class="grid">
+    <div class="c rv"><h3>Programming &amp; Data</h3><div class="pills"><span>SQL</span><span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>JavaScript</span><span>R (basics)</span></div></div>
+    <div class="c rv"><h3>BI &amp; Visualisation</h3><div class="pills"><span>Power BI</span><span>QuickSight</span><span>Tableau</span><span>Advanced Excel</span></div></div>
+    <div class="c rv"><h3>AI &amp; Automation</h3><div class="pills"><span>Prompt Engineering</span><span>LLM Integration</span><span>NLP</span><span>ML Fundamentals</span><span>Web Scraping</span><span>Process Automation</span></div></div>
+    <div class="c rv"><h3>E-Commerce</h3><div class="pills"><span>Amazon Catalogue</span><span>Shopify</span><span>Competitor Pricing</span><span>Product Matching</span><span>Listing Optimisation</span><span>Marketplace KPIs</span></div></div>
+    <div class="c rv"><h3>Data Engineering &amp; Analytics</h3><div class="pills"><span>ETL Pipelines</span><span>AWS S3</span><span>Data Validation</span><span>KPI Dashboards</span><span>RCA</span><span>EDA</span></div></div>
+    <div class="c rv"><h3>Soft Skills</h3><div class="pills"><span>Stakeholder Management</span><span>Documentation</span><span>SLA Management</span><span>Mentoring</span></div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="w">
+  <h2>Experience &amp; Education</h2><p class="sub">Where I've worked and studied</p>
+  <div class="tl rv">
+    <h3>Amazon India: Data, E-Commerce &amp; Catalogue Operations Analyst</h3>
+    <div class="m">Jul 2022 – Present · Bangalore</div>
+    <ul>
+      <li>Built a Python + Gen AI audit framework that cut manual audit time by 70%+ and improved competitor-matching accuracy.</li>
+      <li>Built competitor-catalogue scrapers and matching workflows for competitive pricing intelligence.</li>
+      <li>Created and maintained KPI dashboards in Power BI and QuickSight, with root-cause analysis on deviations.</li>
+      <li>Wrote complex SQL (joins, CTEs, window functions) and cross-checked outputs in Excel and Python before delivery.</li>
+      <li>Managed catalogue operations end to end: SKU onboarding, attribute validation, price checks and storefront accuracy.</li>
+      <li>Led stakeholder calls, wrote SOPs and trained new associates, which shortened their ramp-up time.</li>
+    </ul>
+  </div>
+  <div class="grid" style="margin-top:36px">
+    <div class="c rv"><div class="ic">🏆</div><h3>Stellar Award ×8</h3><p>For strong results, ownership and taking on extra responsibilities.</p></div>
+    <div class="c rv"><div class="ic">🚀</div><h3>Extra Miler ×4</h3><p>For process improvements that raised accuracy for customers and teams.</p></div>
+    <div class="c rv"><div class="ic">⭐</div><h3>Rookie Award ×3</h3><p>For outstanding performance and rapid growth early on.</p></div>
+    <div class="c rv"><div class="ic">🎓</div><h3>IIT Kanpur</h3><p>Professional Certificate in Data Analysis · 2024</p></div>
+    <div class="c rv"><div class="ic">🎓</div><h3>PSG College of Technology</h3><p>B.E. Metallurgical Engineering · 2016 – 2019</p></div>
+    <div class="c rv"><div class="ic">🎓</div><h3>PSG Polytechnic College</h3><p>Diploma in Mechatronics Engineering · 2013 – 2016 · 100%</p></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="w">
+  <div class="contact rv">
+    <h2>Let's work together</h2>
+    <p>Need e-commerce or business data cleaned, scraped, analysed or visualised?<br>Based in India (IST), with flexible overlap with US/EU hours.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn p" style="background:#fff;color:#1e1b4b" href="mailto:sakthik722@gmail.com">✉ Email me</a>
+      <a class="btn o" href="#" target="_blank">Upwork</a>
+      <a class="btn o" href="#" target="_blank">LinkedIn</a>
+      <a class="btn o" href="#" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div></section>
+
+<footer>© 2026 Sakthi Kumar S · Data &amp; E-Commerce Analyst · Bangalore, India</footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  const f=b.dataset.f;document.querySelectorAll('#pgrid .c').forEach(c=>{c.style.display=(f==='all'||c.dataset.t.includes(f))?'':'none'});
+});
+document.querySelectorAll('.menu a').forEach(a=>a.onclick=()=>document.querySelector('.menu').classList.remove('open'));
+</script>
+
+
+</body></html>
